@@ -37,33 +37,42 @@ export class ApiService {
   }
 
   getRates(base: string, date: string): Observable<InternalRates[]>{
-    const url = `${this.urlBase}${date}?base=${base}`,
-      pattern = '1.4-4';
+    const url = `${this.urlBase}${date}?base=${base}`;
 
     return this.http.get<ExternalRate>(url).pipe(
-      map(result => {
-        let internalRates = <InternalRates[]>[];
-        Object.keys(result.rates).map(key => {
-          const value = result.rates[key],
-            sellRate = this.format(
-              value * this.operations.sellModifier, 
-              pattern
-            ),
-            buyRate = this.format(
-              value * this.operations.buyModifier, 
-              pattern
-            );
+      map(result => this.transformRates(result)),
+      catchError(this.handleError(null))
+    );
+  }
 
-          internalRates.push({
-            code: key, 
-            sellRate: sellRate, 
-            buyRate: buyRate,
-            supported: this.currencies.some(currency => currency.code === key)
-          });
-          
-        });
-        return internalRates;
-      })
-    )
+  transformRates(result: ExternalRate){
+    const pattern = '1.4-4';
+    let internalRates = <InternalRates[]>[];
+    Object.keys(result.rates).map(key => {
+      const value = result.rates[key],
+        sellRate = this.format(
+          value * this.operations.sellModifier, 
+          pattern
+        ),
+        buyRate = this.format(
+          value * this.operations.buyModifier, 
+          pattern
+        );
+
+      internalRates.push({
+        code: key, 
+        sellRate: sellRate, 
+        buyRate: buyRate,
+        supported: this.currencies.some(currency => currency.code === key)
+      });
+      
+    });
+    return internalRates;
+  }
+
+  private handleError<T> (result?: T) {
+    return (error: any): Observable<T> => {
+      return of(result as T);
+    };
   }
 }
