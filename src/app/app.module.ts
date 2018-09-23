@@ -1,20 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common'
 
 import { AppComponent } from './app.component';
-import { InterfaceComponent } from './interface/interface.component';
+import { HttpClient } from 'selenium-webdriver/http';
+import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
+import { FormComponent } from './exchange-rates/form/form.component';
+import { TableComponent } from './exchange-rates/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InterfaceComponent
+    ExchangeRatesComponent,
+    FormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
