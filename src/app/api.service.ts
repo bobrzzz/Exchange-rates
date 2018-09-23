@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map, catchError } from 'rxjs/operators';
-import { DecimalPipe } from '@angular/common'
+import { DecimalPipe } from '@angular/common';
 
 import { Currency } from './dataModels/currency';
 import { ExternalRate } from './dataModels/externalRate';

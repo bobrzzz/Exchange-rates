@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { DecimalPipe } from '@angular/common'
+import { DecimalPipe, DatePipe } from '@angular/common'
 
 import { AppComponent } from './app.component';
 import { HttpClient } from 'selenium-webdriver/http';
@@ -22,7 +22,7 @@ import { TableComponent } from './exchange-rates/table/table.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DecimalPipe],
+  providers: [DecimalPipe, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

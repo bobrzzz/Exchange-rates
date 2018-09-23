@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { Currency } from './../../dataModels/currency';
 
@@ -17,11 +18,15 @@ export class FormComponent implements OnInit {
     date: ['', Validators.required]
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder, 
+    private datePipe: DatePipe,
+  ) { }
 
   ngOnInit() {
-    console.log(this.currencies);
+    const todayDate = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
     this.exchangeRatesForm.get('base').setValue(this.currencies.find(q=>q.default));
+    this.exchangeRatesForm.get('date').setValue(todayDate);
   }
 
   onSubmit(): void {
