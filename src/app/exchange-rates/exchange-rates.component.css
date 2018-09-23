@@ -1,0 +1,13 @@
+.exchange-rates{
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    grid-column-gap: 3em;
+}
+
+.exchange-rates__form{
+    grid-column: 1;
+}
+
+.exchange-rates__table{
+    grid-column: 2;
+}

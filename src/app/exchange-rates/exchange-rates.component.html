@@ -1,0 +1,13 @@
+<div class="exchange-rates">
+    <app-form 
+        class='exchange-rates__form' 
+        [currencies]='currencies' 
+        (request)='getRates($event)'
+    >
+    </app-form>
+    <app-table 
+        class='exchange-rates__table'
+        [exchangeRates]='rates'
+    ></app-table>
+</div>
+
