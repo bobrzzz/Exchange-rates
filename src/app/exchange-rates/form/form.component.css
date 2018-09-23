@@ -1,0 +1,18 @@
+.form{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 2em;
+    grid-auto-rows: 2em;
+    grid-column-gap: .5em;
+    grid-row-gap: .5em;
+    
+}
+
+.form__label{
+    grid-column: 1;
+    align-self: center;
+}
+
+.form__control{
+    grid-column: 2;
+}
