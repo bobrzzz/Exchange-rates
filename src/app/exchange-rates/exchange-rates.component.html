@@ -8,6 +8,14 @@
     <app-table 
         class='exchange-rates__table'
         [exchangeRates]='rates'
-    ></app-table>
+        *ngIf='rates'
+    >
+    </app-table>
+    <span
+        class='exchange-rates__message'
+        *ngIf='!rates'
+    >
+        Nothing to display
+    </span>
 </div>
 

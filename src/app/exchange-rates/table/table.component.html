@@ -1,24 +1,24 @@
-<div class='table'>
-    <div class='table__header'>
-      <span 
-        class='table__col table__col--indicator'
-        [ngClass]='asc? "table__col--indicator-asc" : ""'
-        (click)="onCurrencySort()"
-      >
-        Currency
-      </span>
-      <span class='table__col'>Buy</span>
-      <span class='table__col'>Sell</span>
-    </div>
-    <div 
+<div class='table' *ngIf='rates'>
+  <div class='table__header'>
+    <span 
+      class='table__col table__col--indicator'
+      [ngClass]='asc? "table__col--indicator-asc" : ""'
+      (click)="onCurrencySort()"
+    >
+      Currency
+    </span>
+    <span class='table__col'>Buy</span>
+    <span class='table__col'>Sell</span>
+  </div>
+  <div
     *ngFor='let rate of rates'
     class='table__row'
-    >
-      <span 
+  >
+    <span 
       class='table__col'
       [ngClass]='rate.supported ? "table__col--highlight" : ""'
-      >{{rate.code}}</span>
-      <span class='table__col'>{{rate.buyRate}}</span>
-      <span class='table__col'>{{rate.sellRate}}</span>
-    </div>
+    >{{rate.code}}</span>
+    <span class='table__col'>{{rate.buyRate}}</span>
+    <span class='table__col'>{{rate.sellRate}}</span>
   </div>
+</div>
