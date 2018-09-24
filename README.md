@@ -1,5 +1,7 @@
 # ExchangeRates
 
+The main idea is to separate the view into different components for a simpler structure and to keep the service as simple as possible.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
 
 ## Development server
