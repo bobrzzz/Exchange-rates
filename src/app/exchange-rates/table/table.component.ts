@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { InternalRates } from './../../dataModels/internalRate';
 
@@ -7,7 +7,7 @@ import { InternalRates } from './../../dataModels/internalRate';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   private rates: InternalRates[];
   private asc: boolean;
 
@@ -21,9 +21,6 @@ export class TableComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   onCurrencySort(): void {
     this.rates.reverse();
