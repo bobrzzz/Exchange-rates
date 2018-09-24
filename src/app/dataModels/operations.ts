@@ -1,4 +1,4 @@
-export class Operations {
+export interface Operations {
     buyModifier: number;
     sellModifier: number;
 }

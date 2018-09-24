@@ -1,6 +1,6 @@
 import { Currency } from '../app/dataModels/currency';
 
-export const MOCKUP_currencies: Currency[] = [
+export const mockCurrencies: Currency[] = [
     new Currency('EUR', true), // API default value
     new Currency('USD'),
     new Currency('GBP'),

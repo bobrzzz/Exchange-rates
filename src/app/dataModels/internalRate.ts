@@ -1,4 +1,4 @@
-export class InternalRates {
+export interface InternalRates {
     code: string;
     sellRate: number | string;
     buyRate: number | string;

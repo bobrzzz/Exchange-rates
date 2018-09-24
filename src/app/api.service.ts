@@ -9,8 +9,8 @@ import { ExternalRate } from './dataModels/externalRate';
 import { InternalRates } from './dataModels/internalRate';
 import { Operations } from './dataModels/operations';
 
-import { MOCKUP_currencies } from '../mockups/mockCurrency';
-import { MOCKUP_operations } from '../mockups/mockOperations';
+import { mockCurrencies } from '../mockups/mockCurrency';
+import { mockOperations } from '../mockups/mockOperations';
 
 
 @Injectable({
@@ -26,8 +26,8 @@ export class ApiService {
     private decimalPipe: DecimalPipe,
     private http: HttpClient
   ) {
-    this.currencies = MOCKUP_currencies;
-    this.operations = MOCKUP_operations;
+    this.currencies = mockCurrencies;
+    this.operations = mockOperations;
     this.format = (value, digitsInfo?, locale?) =>
       this.decimalPipe.transform(value, digitsInfo, locale); // It was loosing scope of the pipe
   }
