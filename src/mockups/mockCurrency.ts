@@ -1,4 +1,4 @@
-import { Currency } from "../app/dataModels/currency";
+import { Currency } from '../app/dataModels/currency';
 
 export const MOCKUP_currencies: Currency[] = [
     { code: 'EUR', default: true }, // API default value

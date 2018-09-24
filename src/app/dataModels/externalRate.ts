@@ -1,4 +1,4 @@
-export class ExternalRate{
+export class ExternalRate {
     base: string;
     date: string;
     rates: object;

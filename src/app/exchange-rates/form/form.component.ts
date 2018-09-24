@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   exchangeRatesForm = this.fb.group({
     base: ['', Validators.required],
     date: ['', Validators.required]
-  })
+  });
 
   constructor(
     private fb: FormBuilder,

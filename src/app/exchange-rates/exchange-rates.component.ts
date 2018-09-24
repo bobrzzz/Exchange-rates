@@ -21,7 +21,6 @@ export class ExchangeRatesComponent implements OnInit {
   }
 
   getRates(e): void {
-    console.log(e)
     this.apiService.getRates(e.base.code, e.date).subscribe(data => {
       console.log(data);
       this.rates = data;

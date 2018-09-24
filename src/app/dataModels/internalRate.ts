@@ -1,4 +1,4 @@
-export class InternalRates{
+export class InternalRates {
     code: string;
     sellRate: number | string;
     buyRate: number | string;

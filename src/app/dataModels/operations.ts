@@ -1,4 +1,4 @@
-export class Operations{
+export class Operations {
     buyModifier: number;
     sellModifier: number;
 }

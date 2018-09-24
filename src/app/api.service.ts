@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, pipe } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { DecimalPipe } from '@angular/common';
 
@@ -46,8 +46,8 @@ export class ApiService {
   }
 
   transformRates(result: ExternalRate) {
-    const pattern = '1.4-4';
-    let internalRates = <InternalRates[]>[];
+    const pattern = '1.4-4',
+      internalRates = <InternalRates[]>[];
     Object.keys(result.rates).map(key => {
       const value = result.rates[key],
         sellRate = this.format(
