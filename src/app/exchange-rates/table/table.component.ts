@@ -20,8 +20,6 @@ export class TableComponent {
     }
   }
 
-  constructor() { }
-
   onCurrencySort(): void {
     this.rates.reverse();
     this.asc = !this.asc;
