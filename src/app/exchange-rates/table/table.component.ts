@@ -10,11 +10,11 @@ import { InternalRates } from './../../dataModels/internalRate';
 export class TableComponent implements OnInit {
   private rates: InternalRates[];
   private asc: boolean;
-  
-  @Input() set exchangeRates(rates: InternalRates[]){
-    if(rates){
+
+  @Input() set exchangeRates(rates: InternalRates[]) {
+    if (rates) {
       this.rates = rates.sort((a, b) => {
-        return a.code > b.code? 1 : a.code < b.code? -1 : 0;
+        return a.code > b.code ? 1 : a.code < b.code ? -1 : 0;
       });
       this.asc = false;
     }
