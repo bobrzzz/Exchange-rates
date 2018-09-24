@@ -23,20 +23,20 @@ export class ApiService {
   private format: (value: any, digitsInfo?: string, locale?: string) => string;
 
   constructor(
-    private decimalPipe: DecimalPipe, 
+    private decimalPipe: DecimalPipe,
     private http: HttpClient
   ) {
     this.currencies = MOCKUP_currencies;
     this.operations = MOCKUP_operations;
-    this.format = (value, digitsInfo?, locale?) => 
+    this.format = (value, digitsInfo?, locale?) =>
       this.decimalPipe.transform(value, digitsInfo, locale); // It was loosing scope of the pipe
   }
 
-  getCurrencies(): Currency[]{
+  getCurrencies(): Currency[] {
     return this.currencies;
   }
 
-  getRates(base: string, date: string): Observable<InternalRates[]>{
+  getRates(base: string, date: string): Observable<InternalRates[]> {
     const url = `${this.urlBase}${date}?base=${base}`;
 
     return this.http.get<ExternalRate>(url).pipe(
@@ -45,32 +45,32 @@ export class ApiService {
     );
   }
 
-  transformRates(result: ExternalRate){
+  transformRates(result: ExternalRate) {
     const pattern = '1.4-4';
     let internalRates = <InternalRates[]>[];
     Object.keys(result.rates).map(key => {
       const value = result.rates[key],
         sellRate = this.format(
-          value * this.operations.sellModifier, 
+          value * this.operations.sellModifier,
           pattern
         ),
         buyRate = this.format(
-          value * this.operations.buyModifier, 
+          value * this.operations.buyModifier,
           pattern
         );
 
       internalRates.push({
-        code: key, 
-        sellRate: sellRate, 
+        code: key,
+        sellRate: sellRate,
         buyRate: buyRate,
         supported: this.currencies.some(currency => currency.code === key)
       });
-      
+
     });
     return internalRates;
   }
 
-  private handleError<T> (result?: T) {
+  private handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
       return of(result as T);
     };
