@@ -1,37 +1,17 @@
-<form
-  class='form'
-  [formGroup]='exchangeRatesForm'
-  (ngSubmit)='onSubmit()'
->
+<form class='form' [formGroup]='exchangeRatesForm' (ngSubmit)='onSubmit()'>
   <label class="form__label" for='base'>
-      Base:
+    Base:
   </label>
-  <select 
-    class='form__control' 
-    id='base' 
-    formControlName='base'
-  >
-  <option 
-    *ngFor='let currency of currencies'
-    [ngValue]='currency' 
-  >
-    {{ currency.code }}
-  </option>
+  <select class='form__control' id='base' formControlName='base'>
+    <option *ngFor='let currency of currencies' [ngValue]='currency'>
+      {{ currency.code }}
+    </option>
   </select>
   <label class="form__label" for='date'>
-      Date:
+    Date:
   </label>
-  <input 
-    class='form__control'
-    id='date' 
-    formControlName='date' 
-    type='date'
-  >
-  <button 
-    class='form__control'
-    type='submit' 
-    [disabled]='!exchangeRatesForm.valid'
-  >
+  <input class='form__control' id='date' formControlName='date' type='date'>
+  <button class='form__control' type='submit' [disabled]='!exchangeRatesForm.valid'>
     Display
   </button>
 </form>

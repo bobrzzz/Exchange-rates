@@ -1,21 +1,9 @@
 <div class="exchange-rates">
-    <app-form 
-        class='exchange-rates__form' 
-        [currencies]='currencies' 
-        (request)='getRates($event)'
-    >
-    </app-form>
-    <app-table 
-        class='exchange-rates__table'
-        [exchangeRates]='rates'
-        *ngIf='rates'
-    >
-    </app-table>
-    <span
-        class='exchange-rates__message'
-        *ngIf='!rates'
-    >
-        Nothing to display
-    </span>
+  <app-form class='exchange-rates__form' [currencies]='currencies' (request)='getRates($event)'>
+  </app-form>
+  <app-table class='exchange-rates__table' [exchangeRates]='rates' *ngIf='rates'>
+  </app-table>
+  <span class='exchange-rates__message' *ngIf='!rates'>
+    Nothing to display
+  </span>
 </div>
-

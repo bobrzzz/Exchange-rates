@@ -19,13 +19,13 @@ export class FormComponent implements OnInit {
   })
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private datePipe: DatePipe,
   ) { }
 
   ngOnInit() {
     const todayDate = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
-    this.exchangeRatesForm.get('base').setValue(this.currencies.find(q=>q.default));
+    this.exchangeRatesForm.get('base').setValue(this.currencies.find(q => q.default));
     this.exchangeRatesForm.get('date').setValue(todayDate);
   }
 
