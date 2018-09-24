@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-fdescribe('ExchangeRatesComponent', () => {
+describe('ExchangeRatesComponent', () => {
   let component: ExchangeRatesComponent;
   let fixture: ComponentFixture<ExchangeRatesComponent>;
 
