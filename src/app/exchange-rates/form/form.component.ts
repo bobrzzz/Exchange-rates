@@ -25,7 +25,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     const todayDate = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
-    this.exchangeRatesForm.get('base').setValue(this.currencies.find(q => q.default));
+    this.exchangeRatesForm.get('base').setValue(this.currencies.find(q => q.isDefault));
     this.exchangeRatesForm.get('date').setValue(todayDate);
   }
 
